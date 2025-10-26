@@ -15,77 +15,106 @@ Clinician input:
 ${userPrompt}
 `;
 
-export const handleChatSummary: RequestHandler = async (req, res) => {
-  const { prompt } = req.body ?? {};
-  const trimmedPrompt = typeof prompt === "string" ? prompt.trim() : "";
+class GeminiRequestError extends Error {
+  status: number;
+
+  constructor(status: number, message: string) {
+    super(message);
+    this.status = status;
+  }
+}
+
+type GeminiResponse = {
+  candidates?: Array<{
+    content?: { parts?: Array<{ text?: string }> };
+  }>;
+  error?: { message?: string };
+};
+
+const extractPrompt = (value: unknown) =>
+  typeof value === "string" ? value.trim() : "";
+
+const fetchSummaryFromGemini = async (
+  prompt: string,
+  apiKey: string,
+): Promise<string> => {
+  const response = await fetch(`${GEMINI_ENDPOINT}?key=${apiKey}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      contents: [
+        {
+          role: "user",
+          parts: [{ text: buildPrompt(prompt) }],
+        },
+      ],
+      generationConfig: {
+        temperature: 0.2,
+        topK: 40,
+        topP: 0.9,
+      },
+    }),
+  });
+
+  if (!response.ok) {
+    const payload = (await response.json().catch(() => ({}))) as GeminiResponse;
+    throw new GeminiRequestError(
+      response.status,
+      payload.error?.message ?? "Failed to generate summary.",
+    );
+  }
+
+  const data = (await response.json()) as GeminiResponse;
+
+  const summary =
+    data.candidates
+      ?.flatMap((candidate) => candidate.content?.parts ?? [])
+      .map((part) => part?.text?.trim())
+      .filter(Boolean)
+      .join("\n")
+      ?.trim() ?? "";
+
+  if (!summary) {
+    throw new GeminiRequestError(502, "Gemini returned an empty response.");
+  }
+
+  return summary;
+};
+
+export const generateChatSummary = async (
+  prompt: unknown,
+): Promise<ChatSummaryResponse> => {
+  const trimmedPrompt = extractPrompt(prompt);
 
   if (!trimmedPrompt) {
-    res.status(400).json({ error: "Prompt is required." });
-    return;
+    throw new GeminiRequestError(400, "Prompt is required.");
   }
 
   const apiKey = process.env.GEMINI_API_KEY;
 
   if (!apiKey) {
-    res.status(500).json({ error: "Gemini API key is not configured." });
-    return;
+    throw new GeminiRequestError(500, "Gemini API key is not configured.");
   }
 
+  const summary = await fetchSummaryFromGemini(trimmedPrompt, apiKey);
+  return { summary };
+};
+
+export const handleChatSummary: RequestHandler = async (req, res) => {
   try {
-    const response = await fetch(`${GEMINI_ENDPOINT}?key=${apiKey}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        contents: [
-          {
-            role: "user",
-            parts: [{ text: buildPrompt(trimmedPrompt) }],
-          },
-        ],
-        generationConfig: {
-          temperature: 0.2,
-          topK: 40,
-          topP: 0.9,
-        },
-      }),
-    });
-
-    if (!response.ok) {
-      const error = await response.json().catch(() => ({}));
-      res.status(response.status).json({
-        error: error.error?.message ?? "Failed to generate summary.",
-      });
-      return;
-    }
-
-    const data = (await response.json()) as {
-      candidates?: Array<{
-        content?: { parts?: Array<{ text?: string }> };
-      }>;
-    };
-
-    const summary =
-      data.candidates
-        ?.flatMap((candidate) => candidate.content?.parts ?? [])
-        .map((part) => part?.text?.trim())
-        .filter(Boolean)
-        .join("\n")
-        ?.trim() ?? "";
-
-    if (!summary) {
-      res.status(502).json({ error: "Gemini returned an empty response." });
-      return;
-    }
-
-    const payload: ChatSummaryResponse = {
-      summary,
-    };
-
+    const payload = await generateChatSummary(req.body?.prompt);
     res.json(payload);
   } catch (error) {
+    if (error instanceof GeminiRequestError) {
+      res.status(error.status).json({ error: error.message });
+      return;
+    }
+
     console.error("Gemini summary error", error);
     res.status(500).json({ error: "Unexpected error generating summary." });
   }
 };
+
+export { GeminiRequestError };
