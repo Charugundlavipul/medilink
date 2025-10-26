@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="520" viewBox="0 0 800 520">
+  <defs>
+    <linearGradient id="gradRobotic" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18345b"/>
+      <stop offset="100%" stop-color="#2f8fff"/>
+    </linearGradient>
+    <linearGradient id="gradAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#9ce5ff"/>
+      <stop offset="100%" stop-color="#6fb1ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="520" rx="32" fill="url(#gradRobotic)"/>
+  <g transform="translate(80 120)">
+    <rect x="0" y="0" width="260" height="280" rx="28" fill="#06142d" opacity=".45"/>
+    <rect x="40" y="40" width="240" height="240" rx="24" fill="#0a6cff" opacity=".55"/>
+    <g transform="translate(72 72)">
+      <rect x="0" y="0" width="176" height="176" rx="20" fill="url(#gradAccent)" opacity=".85"/>
+      <circle cx="88" cy="88" r="64" fill="#01224b" opacity=".9"/>
+      <path d="M48 92h80v28c0 11-9 20-20 20H68c-11 0-20-9-20-20z" fill="#00a1ff" opacity=".8"/>
+      <path d="M56 70h16v18H56zm52 0h16v18h-16z" fill="#01224b"/>
+      <path d="M82 102h20v20H82z" fill="#01224b"/>
+      <circle cx="88" cy="68" r="20" fill="#f4fbff"/>
+      <circle cx="80" cy="66" r="4" fill="#01224b"/>
+      <circle cx="96" cy="66" r="4" fill="#01224b"/>
+      <path d="M80 78h16" stroke="#01224b" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <path d="M260 60l140-60 160 120-140 60z" fill="#ffffff" opacity=".07"/>
+    <path d="M220 220l180-40 120 80-180 40z" fill="#ffffff" opacity=".05"/>
+  </g>
+  <text x="420" y="190" fill="#e9f5ff" font-family="'Inter', 'Segoe UI', sans-serif" font-weight="700" font-size="46">
+    Robotic-Assisted Surgery
+  </text>
+  <text x="420" y="240" fill="#d0e7ff" font-family="'Inter', 'Segoe UI', sans-serif" font-weight="500" font-size="20">
+    Precision control • Instrument guidance • Simulation labs
+  </text>
+  <text x="420" y="300" fill="#9cc8ff" font-family="'Inter', 'Segoe UI', sans-serif" font-size="16">
+    Johns Hopkins Center for Robotic Excellence
+  </text>
+  <rect x="420" y="340" width="220" height="52" rx="26" fill="#0a6cff" opacity=".85"/>
+  <text x="460" y="372" fill="#ffffff" font-family="'Inter', 'Segoe UI', sans-serif" font-weight="600" font-size="18">
+    8-Hour Expert Certification
+  </text>
+</svg>

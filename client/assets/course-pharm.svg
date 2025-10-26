@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="520" viewBox="0 0 800 520">
+  <defs>
+    <linearGradient id="gradPharm" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#062b3b"/>
+      <stop offset="100%" stop-color="#25b3a5"/>
+    </linearGradient>
+    <linearGradient id="pill" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f4fff8"/>
+      <stop offset="100%" stop-color="#b3ffe6"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="520" rx="32" fill="url(#gradPharm)"/>
+  <g transform="translate(90 120)">
+    <rect x="0" y="0" width="280" height="260" rx="32" fill="#021d28" opacity=".55"/>
+    <rect x="32" y="36" width="216" height="188" rx="28" fill="#0b4f5d" opacity=".65"/>
+    <g transform="translate(72 60)">
+      <rect x="0" y="0" width="180" height="116" rx="32" fill="#073842"/>
+      <rect x="16" y="16" width="148" height="84" rx="24" fill="url(#pill)"/>
+      <path d="M90 16v84" stroke="#0c7a68" stroke-width="8" stroke-linecap="round"/>
+      <circle cx="50" cy="58" r="18" fill="#0c7a68" opacity=".8"/>
+      <circle cx="130" cy="58" r="18" fill="#0c7a68" opacity=".3"/>
+    </g>
+    <circle cx="210" cy="220" r="48" fill="#0c7a68" opacity=".5"/>
+    <circle cx="246" cy="240" r="24" fill="#ecfff5" opacity=".8"/>
+  </g>
+  <text x="420" y="190" fill="#e6fffa" font-family="'Inter', 'Segoe UI', sans-serif" font-weight="700" font-size="44">
+    New Frontiers in Pharmacology
+  </text>
+  <text x="420" y="235" fill="#c7fff0" font-family="'Inter', 'Segoe UI', sans-serif" font-size="18">
+    Precision therapeutics · Pharmacogenomics · Novel delivery systems
+  </text>
+  <text x="420" y="280" fill="#94dccc" font-family="'Inter', 'Segoe UI', sans-serif" font-size="16">
+    Stanford Medicine Translational Sciences
+  </text>
+  <rect x="420" y="320" width="220" height="52" rx="26" fill="#0c7a68" opacity=".9"/>
+  <text x="456" y="352" fill="#ffffff" font-family="'Inter', 'Segoe UI', sans-serif" font-weight="600" font-size="18">
+    4-Hour Intermediate Series
+  </text>
+</svg>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="520" viewBox="0 0 800 520">
+  <defs>
+    <linearGradient id="gradSterile" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#041a2d"/>
+      <stop offset="100%" stop-color="#13a0d8"/>
+    </linearGradient>
+    <linearGradient id="glove" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#9ff6ff"/>
+      <stop offset="100%" stop-color="#5ac6f1"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="520" rx="32" fill="url(#gradSterile)"/>
+  <g transform="translate(96 116)">
+    <rect x="0" y="0" width="248" height="248" rx="40" fill="rgba(0,0,0,0.35)"/>
+    <g transform="translate(48 40)">
+      <rect x="0" y="0" width="152" height="168" rx="32" fill="url(#glove)"/>
+      <path d="M32 32c0-11 9-20 20-20s20 9 20 20v40h-8V36c0-6-6-10-12-8-5 2-8 7-8 12v76a12 12 0 1 1-12 0z" fill="#0e4f70"/>
+      <path d="M120 32c0-11-9-20-20-20s-20 9-20 20v40h8V36c0-6 6-10 12-8 5 2 8 7 8 12v76a12 12 0 1 0 12 0z" fill="#0e4f70"/>
+      <rect x="20" y="128" width="112" height="20" rx="10" fill="#0e4f70" opacity=".6"/>
+    </g>
+    <rect x="200" y="210" width="200" height="32" rx="16" fill="#0e4f70" opacity=".6"/>
+  </g>
+  <text x="420" y="188" fill="#e4faff" font-family="'Inter', 'Segoe UI', sans-serif" font-weight="700" font-size="44">
+    Sterile Techniques Refresher
+  </text>
+  <text x="420" y="232" fill="#c2efff" font-family="'Inter', 'Segoe UI', sans-serif" font-size="18">
+    Aseptic protocol · Instrument handling · Field management
+  </text>
+  <text x="420" y="276" fill="#8bd4ea" font-family="'Inter', 'Segoe UI', sans-serif" font-size="16">
+    Cleveland Clinic Surgical Academy
+  </text>
+  <rect x="420" y="316" width="210" height="52" rx="26" fill="#0e4f70" opacity=".85"/>
+  <text x="458" y="348" fill="#9ff6ff" font-family="'Inter', 'Segoe UI', sans-serif" font-weight="600" font-size="18">
+    2-Hour Essentials
+  </text>
+</svg>

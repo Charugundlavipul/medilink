@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="520" viewBox="0 0 800 520">
+  <defs>
+    <linearGradient id="gradVax" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#123870"/>
+      <stop offset="100%" stop-color="#5ac4ff"/>
+    </linearGradient>
+    <linearGradient id="syringe" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#dff4ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="520" rx="32" fill="url(#gradVax)"/>
+  <g transform="translate(90 120)">
+    <rect x="0" y="0" width="260" height="240" rx="32" fill="rgba(0,0,0,0.35)"/>
+    <g transform="translate(40 48)">
+      <rect x="0" y="0" width="180" height="120" rx="26" fill="rgba(12,62,120,0.75)"/>
+      <rect x="28" y="28" width="124" height="40" rx="8" fill="url(#syringe)"/>
+      <rect x="52" y="36" width="76" height="12" rx="4" fill="#5ac4ff"/>
+      <rect x="28" y="78" width="124" height="22" rx="10" fill="rgba(255,255,255,0.35)"/>
+      <rect x="84" y="-28" width="12" height="160" rx="6" fill="#5ac4ff"/>
+      <circle cx="90" cy="-40" r="16" fill="#5ac4ff"/>
+    </g>
+    <circle cx="220" cy="210" r="28" fill="#5ac4ff" opacity=".8"/>
+    <circle cx="250" cy="230" r="18" fill="#ffffff" opacity=".9"/>
+  </g>
+  <text x="420" y="188" fill="#eef8ff" font-family="'Inter', 'Segoe UI', sans-serif" font-weight="700" font-size="44">
+    Pediatric Vaccination Protocols
+  </text>
+  <text x="420" y="232" fill="#caeaff" font-family="'Inter', 'Segoe UI', sans-serif" font-size="18">
+    Schedules · Contraindications · Family communication
+  </text>
+  <text x="420" y="276" fill="#9ecff0" font-family="'Inter', 'Segoe UI', sans-serif" font-size="16">
+    Children's Hospital Immunization Institute
+  </text>
+  <rect x="420" y="316" width="220" height="52" rx="26" fill="#5ac4ff" opacity=".9"/>
+  <text x="456" y="348" fill="#0b2e56" font-family="'Inter', 'Segoe UI', sans-serif" font-weight="600" font-size="18">
+    3-Hour Accredited Course
+  </text>
+</svg>
