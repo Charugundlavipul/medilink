@@ -149,12 +149,12 @@ export default function Messages() {
   };
 
   return (
-    <div className="mx-auto max-w-6xl space-y-6 pb-28">
-      <div className="rounded-3xl border border-border/60 bg-white/95 shadow-2xl backdrop-blur">
-        <div className="flex min-h-[600px] flex-col md:min-h-[calc(100vh-240px)] md:flex-row">
+    <div className="mx-auto max-w-6xl space-y-6 pb-16 md:pb-8">
+      <div className="rounded-3xl border border-border/60 bg-white/95 shadow-2xl backdrop-blur overflow-hidden">
+        <div className="flex min-h-[520px] flex-col md:h-[calc(100vh-220px)] md:flex-row">
           <aside
             className={cn(
-              "flex flex-col border-border/70 md:w-80 md:border-r",
+              "flex flex-col border-border/70 md:w-80 md:border-r md:h-full",
               selectedChatData ? "hidden md:flex" : "flex",
             )}
           >
@@ -221,7 +221,7 @@ export default function Messages() {
             </div>
           </aside>
 
-          <section className={cn("flex flex-1 flex-col rounded-t-3xl border-l border-border/60 bg-white md:rounded-none", selectedChatData ? "flex" : "hidden md:flex")}>    
+          <section className={cn("flex flex-1 flex-col rounded-t-3xl border-l border-border/60 bg-white md:h-full md:rounded-none", selectedChatData ? "flex" : "hidden md:flex")}>    
             {selectedChatData ? (
               <>
                 <div className="relative overflow-hidden rounded-t-3xl border-b border-border/60 bg-gradient-to-r from-primary/10 via-primary/5 to-transparent px-6 py-4 md:rounded-none">

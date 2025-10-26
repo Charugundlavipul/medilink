@@ -1,5 +1,5 @@
 import type { LucideIcon } from "lucide-react";
-import { Home, Bot, Plus, GraduationCap, User } from "lucide-react";
+import { Home, Bot, Plus, GraduationCap, MessageCircle } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
 import logoFull from "@/assets/medi-link.png";
@@ -33,8 +33,8 @@ export default function SidebarNav() {
   const tabs: Array<Omit<TabProps, "active">> = [
     { to: "/", label: "Home", icon: Home },
     { to: "/chatbot", label: "Chatbot", icon: Bot },
+    { to: "/messages", label: "Messages", icon: MessageCircle },
     { to: "/learning", label: "Learning", icon: GraduationCap },
-    { to: "/profile", label: "Profile", icon: User },
   ];
 
   return (

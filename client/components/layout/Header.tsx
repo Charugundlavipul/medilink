@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { User, MessageCircle, Bell, Stethoscope, CalendarCheck2, Sparkles } from "lucide-react";
+import { User, Bell, Stethoscope, CalendarCheck2, Sparkles } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import logoFull from "@/assets/medi-link.png";
@@ -23,8 +23,8 @@ export default function Header() {
   const navItems = [
     { label: "Home", to: "/" },
     { label: "Chatbot", to: "/chatbot" },
+    { label: "Messages", to: "/messages" },
     { label: "Learning", to: "/learning" },
-    { label: "Profile", to: "/profile" },
   ];
 
   const notifications: Notification[] = [
@@ -109,13 +109,6 @@ export default function Header() {
         </nav>
 
         <div className="ml-auto flex items-center gap-3">
-          <Link
-            to="/messages"
-            aria-label="Messages"
-            className="relative grid h-11 w-11 place-items-center rounded-full bg-muted/60 text-muted-foreground transition hover:bg-muted"
-          >
-            <MessageCircle className="h-5 w-5" />
-          </Link>
           <button
             ref={notificationToggleRef}
             type="button"
@@ -131,13 +124,26 @@ export default function Header() {
               </span>
             )}
           </button>
-          <div className="hidden text-right sm:flex sm:flex-col">
-            <span className="text-sm font-semibold text-foreground">Dr. Eleanor Pena</span>
-            <span className="text-xs text-muted-foreground">Cardiology | Online</span>
-          </div>
-          <div className="grid h-11 w-11 place-items-center rounded-full bg-primary/15 text-primary">
+          <Link
+            to="/profile"
+            className="group hidden items-center gap-3 rounded-full px-2 py-1 transition hover:bg-muted sm:flex"
+            aria-label="View profile"
+          >
+            <div className="text-right">
+              <span className="block text-sm font-semibold text-foreground group-hover:text-primary">Dr. Eleanor Pena</span>
+              <span className="text-xs text-muted-foreground">Cardiology | Online</span>
+            </div>
+            <span className="grid h-11 w-11 place-items-center rounded-full bg-primary/15 text-primary transition group-hover:bg-primary/20">
+              <User className="h-5 w-5" />
+            </span>
+          </Link>
+          <Link
+            to="/profile"
+            className="grid h-11 w-11 place-items-center rounded-full bg-primary/15 text-primary transition hover:bg-primary/20 sm:hidden"
+            aria-label="View profile"
+          >
             <User className="h-5 w-5" />
-          </div>
+          </Link>
         </div>
 
         {notificationsOpen && (
